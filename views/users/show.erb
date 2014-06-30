@@ -1,8 +1,23 @@
-<h2><%= @user.username %></h2>
+<h2 class="show-username"><%= @user.username %></h2>
 
-
-<h3>What's on your mind?</h3>
+<h4 class="grumble-form">What's on your mind?</h4>
 <form action="/users/<%= @user.id %>/grumbles" method="post">
   <input type="text" name="grumble" placeholder="Grumble Here">
   <button type="submit">Share</button>
 </form>
+
+<h3 class="show-grumbles-title">Grumbles...</h3>
+<ul class="grumbles-list">
+  <% @grumbles.each do |grumble_object| %>
+  <li>
+    <%= grumble_object.grumble %> <span>
+    <form action="/users/<%= @user.id %>/grumbles/<%= grumble_object.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">Delete Grumble</button>
+    </form>
+  </span>
+</li>
+<% end %>
+</ul>
+
+

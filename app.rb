@@ -25,6 +25,7 @@ end
 
 get "/users/:id" do
   @user = User.find(params[:id])
+  @grumbles = @user.grumbles
   erb :"users/show"
 end
 
@@ -36,7 +37,6 @@ end
 put "/users/:id" do
   user = User.find(params[:id])
   username = params[:username]
-  binding.pry
   user.update({username: username})
   redirect "users/#{user.id}"
 end
@@ -54,7 +54,7 @@ post "/users/:id/grumbles" do
   redirect "/users/#{user.id}"
 end
 
-delete "/users/:id/grumbles/:grumble_id" do
+delete "/users/:user_id/grumbles/:grumble_id" do
   Grumble.delete(params[:grumble_id])
   redirect "/users/#{params[:user_id]}"
 end
