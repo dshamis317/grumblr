@@ -14,3 +14,14 @@ end
 get 'users/new' do
   erb :'users/new'
 end
+
+post 'users' do
+  username = params[:username]
+  new_user = User.create({username: username})
+  redirect "/users/#{new_user.id}"
+end
+
+get 'users/:id' do
+  @user = User.find(params[:id])
+  erb :'users/show'
+end
