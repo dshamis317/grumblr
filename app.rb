@@ -38,3 +38,9 @@ put '/users/:id' do
   user.update({username: username})
   redirect "users/#{user.id}"
 end
+
+delete '/users/:id' do
+  User.delete(params[:id])
+  redirect "/"
+end
+

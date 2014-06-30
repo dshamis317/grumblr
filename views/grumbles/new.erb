@@ -1,0 +1,5 @@
+<h1>What's on your mind, <%= @user.username %>?</h1>
+<form action="/users/<%= @user.id %>/grumbles" method="post">
+  <input type="text" name="message" placeholder="Grumble Here">
+  <button type="submit">Share</button>
+</form>
