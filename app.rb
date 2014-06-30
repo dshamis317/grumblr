@@ -8,6 +8,8 @@ require_relative 'config.rb'
 
 
 get "/" do
+  @users = User.all
+  @grumbles = Grumble.all
   erb :index
 end
 
@@ -42,11 +44,6 @@ end
 delete "/users/:id" do
   User.delete(params[:id])
   redirect "/"
-end
-
-get "users/:id/grumbles/new" do
-  @user = User.find(params[:id])
-  erb :"grumbles/new"
 end
 
 post "/users/:id/grumbles" do
