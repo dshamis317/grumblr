@@ -7,31 +7,31 @@ require_relative 'models/grumble'
 require_relative 'config.rb'
 
 
-get '/' do
+get "/" do
   erb :index
 end
 
-get '/users/new' do
-  erb :'users/new'
+get "/users/new" do
+  erb :"users/new"
 end
 
-post '/users' do
+post "/users" do
   username = params[:username]
   new_user = User.create({username: username})
   redirect "/users/#{new_user.id}"
 end
 
-get '/users/:id' do
+get "/users/:id" do
   @user = User.find(params[:id])
-  erb :'users/show'
+  erb :"users/show"
 end
 
-get '/users/:id/edit' do
+get "/users/:id/edit" do
   @user = User.find(params[:id])
-  erb :'users/edit'
+  erb :"users/edit"
 end
 
-put '/users/:id' do
+put "/users/:id" do
   user = User.find(params[:id])
   username = params[:username]
   binding.pry
@@ -39,8 +39,25 @@ put '/users/:id' do
   redirect "users/#{user.id}"
 end
 
-delete '/users/:id' do
+delete "/users/:id" do
   User.delete(params[:id])
   redirect "/"
 end
 
+get "users/:id/grumbles/new" do
+  @user = User.find(params[:id])
+  erb :"grumbles/new"
+end
+
+post "/users/:id/grumbles" do
+  grumble = params[:grumble]
+  user = User.find(params[:id])
+  new_grumble = Grumble.create({grumble: grumble})
+  user.grumbles << new_grumble
+  redirect "/users/#{user.id}"
+end
+
+delete "/users/:id/grumbles/:grumble_id" do
+  Grumble.delete(params[:grumble_id])
+  redirect "/users/#{params[:user_id]}"
+end
