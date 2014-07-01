@@ -1,0 +1,84 @@
+body {
+  background-color: lightgreen;
+}
+
+nav {
+  font-size: 40px;
+  font-family: 'Oswald', sans-serif;
+  margin-top: -40px;
+  margin-left: 30px;
+  height: 50px;
+}
+
+h2, h3 {
+  font-family: 'Oswald', sans-serif;
+  margin-left: 30px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h4, a, li {
+  font-family: 'Droid Serif', serif;
+}
+
+.index-container {
+  width: 100%;
+  display: block;
+  text-align: left;
+}
+
+.members {
+  width: 300px;
+  margin-top: -15px;
+  margin-left: 30px;
+  float: left;
+}
+
+.timeline {
+  width: 750px;
+  float: left;
+  margin-top: -15px;
+  margin-left: 40px;
+}
+
+.show-username, .grumble-form, .show-grumbles-title {
+  margin-left: 30px;
+}
+
+.grumble {
+  width: 500px;
+  display: inline-block;
+  float: left;
+}
+
+
+input {
+  height: 30px;
+  font-family: 'Droid Serif', serif;
+  font-size: 16px;
+  margin-left: 30px;
+}
+
+button {
+  background-color: red;
+  color: white;
+  font-family: 'Droid Serif', serif;
+  font-size: 16px;
+  height: 30px;
+  width: 100px;
+}
+
+button:hover {
+  background-color: green;
+}
+
+.start {
+  width: 500px;
+  font-size: 20px;
+}
+
+.new-user {
+  width: 200px;
+}

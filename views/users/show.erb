@@ -1,4 +1,4 @@
-<h2 class="show-username"><%= @user.username %></h2>
+<h2 class="show-username"><%= @user.username %>'s Profile</h2>
 
 <h4 class="grumble-form">What's on your mind?</h4>
 <form action="/users/<%= @user.id %>/grumbles" method="post">
@@ -7,17 +7,18 @@
 </form>
 
 <h3 class="show-grumbles-title">Grumbles...</h3>
-<ul class="grumbles-list">
-  <% @grumbles.each do |grumble_object| %>
-  <li>
-    <%= grumble_object.grumble %> <span>
-    <form action="/users/<%= @user.id %>/grumbles/<%= grumble_object.id %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button type="submit">Delete Grumble</button>
-    </form>
-  </span>
-</li>
-<% end %>
-</ul>
+  <ul class="grumbles-list">
+    <% @grumbles.each do |grumble_object| %>
+    <li class="grumble">
+      <%= grumble_object.grumble %>
+      <span>
+        <form action="/users/<%= @user.id %>/grumbles/<%= grumble_object.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button class="delete" type="submit">Delete</button>
+        </form>
+      </span>
+    </li>
+    <% end %>
+  </ul>
 
 

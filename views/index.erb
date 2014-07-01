@@ -1,7 +1,7 @@
-<div class="container">
+<div class="index-container">
 
   <div class="members">
-    <h1>Current Members:</h1>
+    <h2>Current Members:</h2>
     <ul>
       <% @users.each do |user| %>
       <li>
@@ -29,12 +29,7 @@
       </li>
       <% end %>
     </ul>
+    <a href="/users/new"><button class="start">What are you waiting for? Start Grumbling already...</button></a>
   </div>
 
 </div>
-
-<div class="footer">
-  <hr>
-  <a href="/users/new"><button class="start">What are you waiting for? Start Grumbling already...</button></a>
-</div>
-
