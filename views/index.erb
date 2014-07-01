@@ -1,1 +1,40 @@
-<h1>Hello World!</h1>
+<div class="container">
+
+  <div class="members">
+    <h1>Current Members:</h1>
+    <ul>
+      <% @users.each do |user| %>
+      <li>
+        <a href="/users/<%= user.id %>">
+          <%= user.username %>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="timeline">
+    <h2>Current Grumbles</h2>
+    <ul>
+      <% @grumbles.each do |grumble_object| %>
+      <li>
+        <%= grumble_object.grumble %> by
+        <a href="/users/<%= grumble_object.user_id %>">
+          <% @users.each do |user| %>
+            <% if user.id == grumble_object.user_id %>
+              <%= user.username %>
+            <% end %>
+          <% end %>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  <hr>
+  <a href="/users/new"><button class="start">What are you waiting for? Start Grumbling already...</button></a>
+</div>
+
